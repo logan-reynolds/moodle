@@ -147,10 +147,10 @@ class core_string_manager_standard implements core_string_manager {
             foreach ($deps as $dep) {
                 // The main lang string location.
                 if (file_exists("$this->otherroot/$dep/$file.php")) {
-                    include("$this->otherroot/$dep/$file.php");
+                    include_once("$this->otherroot/$dep/$file.php");
                 }
                 if (!$disablelocal and file_exists("$this->localroot/{$dep}_local/$file.php")) {
-                    include("$this->localroot/{$dep}_local/$file.php");
+                    include_once("$this->localroot/{$dep}_local/$file.php");
                 }
             }
 
@@ -182,15 +182,15 @@ class core_string_manager_standard implements core_string_manager {
             foreach ($deps as $dep) {
                 // Legacy location - used by contrib only.
                 if (file_exists("$location/lang/$dep/$file.php")) {
-                    include("$location/lang/$dep/$file.php");
+                    include_once("$location/lang/$dep/$file.php");
                 }
                 // The main lang string location.
                 if (file_exists("$this->otherroot/$dep/$file.php")) {
-                    include("$this->otherroot/$dep/$file.php");
+                    include_once("$this->otherroot/$dep/$file.php");
                 }
                 // Local customisations.
                 if (!$disablelocal and file_exists("$this->localroot/{$dep}_local/$file.php")) {
-                    include("$this->localroot/{$dep}_local/$file.php");
+                    include_once("$this->localroot/{$dep}_local/$file.php");
                 }
             }
         }
